@@ -1,69 +1,70 @@
-package Acitvity;
-
-import java.util.Scanner;
 import java.util.ArrayList;
-public class studentManagementSystem {
-    public static void main (String args []) {
-        
-     Scanner scan = new Scanner (System.in);
-      ArrayList<String> student = new ArrayList<>();
-      
-      while (true){
-          System.out.println("=========================");
-          System.out.println("\nSTUDENT MANAGEMENT SYSTEM");
-          System.out.println("\n=========================");
-          System.out.println("1. Add a Student Name ");
-          System.out.println("2. View a Student Name ");
-          System.out.println("3. Search a Student Name ");
-          System.out.println("4. Remove a Student Name ");
-          System.out.println("5. Exit");
-          
-          System.out.print("Enter a number to Proceed: ");
-          
-          int decision = scan.nextInt();
-          scan.nextLine();
-          
-          if (decision == 1 ) {
-              System.out.print("Enter a name to add to the Student List: ");
-              String name = scan.nextLine();
-              student.add(name);
-              System.out.println("name is added to the Student List Successfully.");
-          }
-          else if (decision == 2) {
-          if (student.isEmpty()) {
-              System.out.println("Student List is Empty.");
-          }else{
-              System.out.println("\nSTUDENT LIST OF NAME:");
-              for (int i = 0; i<student.size(); i++) {
-                  System.out.println((i + 1) + "." + (student.get(i)));
-              }
-          }
-      }
-          else if (decision == 3) {
-              System.out.print("Enter a name to search in the Student List: ");
-              String search = scan.nextLine();
-              if (student.contains(search)) {
-                  System.out.println("The name verified, on the Student List ");
-              }else{
-                  System.out.println("The name is not verified on the Student List");
-              }
-          }
-          else if (decision == 4) {
-              System.out.print("Enter a name to be removed from the Student List: ");
-              String remove = scan.nextLine();
-              if (student.contains(remove)){
-                  student.remove(remove);
-                  System.out.println("The name is removed from the Student List successfully.");
-              }else{
-                  System.out.println("The name is not found on the Student List.");
-              }
-          }
-          else if (decision == 5) {
-              System.out.println("Exiting the Program......");
-              break;
-          }else{
-              System.out.println("System error, Please try again.");
-          }
-      }
-      }
+import java.util.Scanner;
+
+public class StudentManagement {
+    public static void main(String[] args) {
+        // Ito yung ArrayList natin para sa mga student name
+        ArrayList<String> students = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println("\n===== STUDENT MANAGEMENT SYSTEM =====");
+            System.out.println("1. Add Student");
+            System.out.println("2. View Students");
+            System.out.println("3. Search Student");
+            System.out.println("4. Remove Student");
+            System.out.println("5. Exit");
+            System.out.print("Enter choice: ");
+            choice = sc.nextInt();
+            sc.nextLine(); // para hindi mag skip
+
+            if (choice == 1) {
+                // 1. ADD STUDENT
+                System.out.print("Enter Student Name: ");
+                String name = sc.nextLine();
+                students.add(name); // .add() para magdagdag
+                System.out.println(name + " added successfully!");
+
+            } else if (choice == 2) {
+                // 2. VIEW STUDENTS - gaya sa example mo
+                if (students.isEmpty()) {
+                    System.out.println("No students yet!");
+                } else {
+                    System.out.println("\n--- LIST OF STUDENTS ---");
+                    for (String student : students) { // for-each loop gaya sa slide
+                        System.out.println(student);
+                    }
+                }
+
+            } else if (choice == 3) {
+                // 3. SEARCH STUDENT
+                System.out.print("Enter name to search: ");
+                String searchName = sc.nextLine();
+                if (students.contains(searchName)) { // .contains() para maghanap
+                    System.out.println(searchName + " is in the list!");
+                } else {
+                    System.out.println(searchName + " not found!");
+                }
+
+            } else if (choice == 4) {
+                // 4. REMOVE STUDENT
+                System.out.print("Enter name to remove: ");
+                String removeName = sc.nextLine();
+                if (students.remove(removeName)) { // .remove() para magbawas
+                    System.out.println(removeName + " removed successfully!");
+                } else {
+                    System.out.println(removeName + " not found!");
+                }
+
+            } else if (choice == 5) {
+                System.out.println("Exiting... Bye!");
+            } else {
+                System.out.println("Invalid choice!");
+            }
+
+        } while (choice != 5);
+
+        sc.close();
     }
+}
