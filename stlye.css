@@ -1,0 +1,77 @@
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+button {
+    /* Large enough for touch */
+    min-width: 150px;
+    min-height: 48px;
+
+    padding: 12px 20px;
+
+    /* High contrast */
+    background-color: #0066ff;
+    color: #ffffff;
+
+    border: 3px solid #ffffff;
+    border-radius: 8px;
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+/* Mouse users */
+button:hover {
+    background-color: #0047b3;
+}
+
+/* Keyboard users */
+button:focus-visible {
+    outline: 4px solid #00ffff;
+    outline-offset: 4px;
+}
+
+/* When the button is being pressed */
+button:active {
+    transform: scale(0.97);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .buttons {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+        max-width: 300px;
+    }
+}#btn {
+    background-color: #d40000;
+    color: white;
+    border: 2px solid #ff4444;
+    border-radius: 10px;
+    padding: 12px 25px;
+    min-width: 160px;
+    min-height: 48px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#btn:hover {
+    background-color: #ff0000;
+}
+
+#btn:focus-visible {
+    outline: 4px solid white;
+    outline-offset: 4px;
+}
